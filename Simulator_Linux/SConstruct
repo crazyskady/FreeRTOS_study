@@ -1,0 +1,17 @@
+
+obj = Object([
+'./FreeRTOS_Kernel/croutine.c',
+'./FreeRTOS_Kernel/list.c',
+'./FreeRTOS_Kernel/queue.c',
+'./FreeRTOS_Kernel/tasks.c',
+'./FreeRTOS_Kernel/portable/GCC/Posix/port.c',
+'./FreeRTOS_Kernel/portable/MemMang/heap_3.c',
+'./src/main.c'
+], 
+CCFLAGS= '-DUSE_STDIO=1 -D__GCC_POSIX__=1',
+CPPPATH = 
+['./inc', './FreeRTOS_Kernel/include', './FreeRTOS_Kernel/portable/GCC/Posix']
+)
+
+Program('simulator_linux.bin', obj, LIBS=['pthread'])
+
